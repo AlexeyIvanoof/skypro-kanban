@@ -1,8 +1,14 @@
 import Column from '../Column/Column';
 import './Main.css'
 
-function Main () {
-
+function Main ({cards}) {
+	const statusList = [
+		"Без статуса",
+		"Нужно сделать",
+		"В работе",
+		"Тестирование",
+		"Готово",
+	];
     return(
 
 		<main className="main">
@@ -10,11 +16,13 @@ function Main () {
 				
 				<div className="main__block">
 					<div className="main__content">
-						<Column name = "Без статуса"/>					
-						<Column name = "Нужно сделать"/>	
-						<Column name = "В работе"/>
-						<Column name = "Тестирование"/>
-						<Column name = "Готово"/>
+					{statusList.map((status) => (
+    <Column
+      key={status}
+      title={status}
+      cardList={cards.filter((card) => card.status === status)}
+    />
+  ))}
 					</div>
 				
 				</div>
