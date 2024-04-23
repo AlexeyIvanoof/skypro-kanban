@@ -5,7 +5,7 @@
     title:"Название задачи",
     date:"22.02.24",
     status:"Без статуса",
-
+    theme: "_purple",
 },
 {
     id:2,
@@ -13,7 +13,7 @@
     title:"Название задачи",
     date:"12.04.24",
     status:"Нужно сделать",
-
+    theme: "_orange",
 },
 {
     id:3,
@@ -21,7 +21,7 @@
     title:"Название задачи",
     date:"06.04.24",
     status:"В работе",
-
+    theme: "_green"
 },
 {
     id:4,
@@ -29,7 +29,7 @@
     title:"Название задачи",
     date:"10.04.24",
     status:"Тестирование",
-
+    theme: "_gray"
 },
 {
     id:5,
@@ -37,7 +37,7 @@
     title:"Название задачи",
     date:"5.04.24",
     status:"Готово",
-
+    theme: "_purple"
 },
 ]
 export default cardList;

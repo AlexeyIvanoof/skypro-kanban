@@ -1,5 +1,5 @@
 import Column from '../Column/Column';
-import './Main.css'
+import * as S from "./Main.stuled"
 
 function Main ({cards}) {
 	const statusList = [
@@ -11,11 +11,11 @@ function Main ({cards}) {
 	];
     return(
 
-		<main className="main">
-			<div className="container">
+		<S.Main>
+			<S.Container>
 				
-				<div className="main__block">
-					<div className="main__content">
+				<S.MainBlock>
+					<S.MainContent>
 					{statusList.map((status) => (
     <Column
       key={status}
@@ -23,11 +23,11 @@ function Main ({cards}) {
       cardList={cards.filter((card) => card.status === status)}
     />
   ))}
-					</div>
+					</S.MainContent>
 				
-				</div>
-			</div>
-		</main>
+				</S.MainBlock>
+			</S.Container>
+		</S.Main>
     )
 }
 

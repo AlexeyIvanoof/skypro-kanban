@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PopUserModal from '../../modal/PopUserModal/PopUserModal';
-import './Header.css' 
+import * as S from "./Header.stuled"
 
 
 function Header({onCardAdd}) {
@@ -10,24 +10,21 @@ function Header({onCardAdd}) {
 	}
 
     return (
-        <header className="header">
-			<div className="container">
-				<div className="header__block">
-					<div className="header__logo _show _light">
-						<a href="" target="_self"><img src="logo.png" alt="logo"/></a>
+        <S.Header>
+			<S.Container>
+				<S.HeaderBlock>
+					<div>
+						<a href="" target="_self"><S.HeaderLogo src="logo.png" alt="logo"/></a>
 					</div>
-					<div className="header__logo _dark">
-						<a href="" target="_self"><img src="logo_dark.png" alt="logo"/></a>
-					</div>
-					<nav className="header__nav">
-						<button onClick={onCardAdd} className="header__btn-main-new _hover01" id="btnMainNew"><a>Создать новую задачу</a></button>
-						<a onClick={handlClick} className="header__user _hover02">Ivan Ivanov</a>
+					<S.HeaderNav>
+						<S.HeaderBtnMainNew onClick={onCardAdd} id="btnMainNew"><a>Создать новую задачу</a></S.HeaderBtnMainNew>
+						<S.HeaderUser onClick={handlClick}>Ivan Ivanov</S.HeaderUser>
 						{isOupen &&(<PopUserModal/>)}
 						
-					</nav>					
-				</div>
-			</div>			
-		</header>
+					</S.HeaderNav>					
+				</S.HeaderBlock>
+			</S.Container>			
+		</S.Header>
     )
   }
   
