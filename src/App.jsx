@@ -1,3 +1,5 @@
+import * as S from "./App.stuled.js"
+import { GlobalStyle } from './Global.styled.js';
 import { useState, useEffect } from 'react'
 import './App.css'
 import Header from './components/Header/Header' 
@@ -28,7 +30,9 @@ function App() {
     setCards([...cards,  newCard]);
   }
   return (
-    <div className="wrapper">
+    <>
+    <GlobalStyle/>
+    <S.Wrapper>
 			
 		<PopUser/>
 	<PopNewCard/>
@@ -36,13 +40,14 @@ function App() {
 		<Header onCardAdd={onCardAdd} />
     {isLoading ? (
           <div>
-           <h1 className="Loading">...Данные загружаются</h1>
+           <S.Loading>...Данные загружаются</S.Loading>
           </div>
         ) : (
           <Main cards={cards} />
         )}
 		
-    </div>
+    </S.Wrapper>
+    </>
   )
 }
 
