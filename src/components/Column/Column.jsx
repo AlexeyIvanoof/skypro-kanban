@@ -16,6 +16,7 @@ function Column ({title, cardList}){
 			status={item. status}
             topic={item.topic}
             theme={item.theme}
+            id={item.id}
           />
         ))}
 							</S.Cards>
