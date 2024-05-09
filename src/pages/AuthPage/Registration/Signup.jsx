@@ -1,7 +1,30 @@
 import * as S from "./Signup.stuled"
 import { Link } from 'react-router-dom';
+import { useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { RegistrationApi } from "../../../Api";
 
-export function Signup() {
+export function Signup({setUser}) {
+	
+	const navigate = useNavigate();
+	const [error, setError] = useState(null);
+	const [name, setName] = useState("");
+	const [login, setlogin] = useState("");
+	const [password, setPassword] = useState("");
+	
+ const handleRegister = async () => {
+      try {
+        const response = await RegistrationApi( login, name, password);
+		setUser(response);
+        localStorage.setItem("user",JSON.stringify(response));
+        navigate("/login");
+      } catch (currentError) {
+        setError(currentError.message);
+        console.log(error);
+      } finally {
+		console.log(error);
+      }
+  };
     
     return (
         <S.Wrapper>
@@ -9,16 +32,46 @@ export function Signup() {
             <S.Modal>
 				<S.ModalBlock>
 					<div>
-						<S.ModalTtlH2>Вход</S.ModalTtlH2>
+						<S.ModalTtlH2>Регистрация</S.ModalTtlH2>
 					</div>
 		<S.ModalFormLogin id="formLogIn" action="#">
-						<S.ModalInput type="text" name="first-name" id="first-name" placeholder="Имя"/>
-						<S.ModalInput type="text" name="login" id="loginReg" placeholder="Эл. почта"/>
-						<S.ModalInput type="password" name="password" id="passwordFirst" placeholder="Пароль"/>
-						<S.ModalBtnEnter id="SignUpEnter"><S.ModalBtnSignupEntA href="../main.html">Зарегистрироваться</S.ModalBtnSignupEntA> </S.ModalBtnEnter>
+						<S.ModalInput
+                         type="text" 
+                         name="first-name" 
+						id="first-name" 
+						placeholder="Имя"
+						value={name}
+						onChange={(event) => {
+						setName(event.target.value);
+						}} />
+						
+						<S.ModalInput
+                         type="text" 
+                         name="login" 
+                         id="loginReg"
+                         placeholder="Эл. почта"
+                         value={login}
+                         onChange={(event) => {
+						setlogin(event.target.value);
+                         }} />
+
+						<S.ModalInput 
+						type="password"
+						name="password"
+						placeholder="Пароль"
+						value={password}
+						onChange={(event) => {
+						setPassword(event.target.value);
+						}} />
+
+						<S.ModalBtnEnter  id="SignUpEnter">
+						<S.ModalBtnSignupEntA onClick={handleRegister}>Зарегистрироваться</S.ModalBtnSignupEntA>
+						</S.ModalBtnEnter>
+
 						<S.ModalFormGroup>
 							<S.ModalFormGroupP>Уже есть аккаунт?  <Link to="/login"><S.ModalFormGroupA>Войдите здесь</S.ModalFormGroupA></Link></S.ModalFormGroupP>
 						</S.ModalFormGroup>
+
                         </S.ModalFormLogin>
 				</S.ModalBlock>
             </S.Modal>

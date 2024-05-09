@@ -8,16 +8,26 @@ import { Layout } from "./Layout";
 import PrivateRoute from "./PrivateRoute"
 import PopUser from "./pages/Exit/ExitPage";
 import PopNewCard from "./modal/PopNewCard/PopNewCard";
+import { useState } from "react";
 
 function App() {
-  const isAuth = true;
+  //const user = true;
+  const [user, setUser] = useState(localStorage.getItem('user') || null)
 
   return (
     <Routes>
-      <Route path="/login" element={<Signin />} />
-      <Route path="/registr" element={<Signup />} />
+      <Route path="/login" element={<Signin
+       user={user}
+       setUser={setUser} />} />
 
-      <Route element={<PrivateRoute isAuth={isAuth} />}>
+      <Route path="/registr" element={<Signup
+       user={user}
+       setUser={setUser} />} />
+
+      <Route element={<PrivateRoute
+       user={user}
+       setUser={setUser} />}>
+
       <Route path="/" element={<Layout />}>
       <Route path="card/:id" element={<CardPage/>} />
       <Route path="/cardnew" element={<PopNewCard/>} />

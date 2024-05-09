@@ -8,15 +8,15 @@ function Column ({title, cardList}){
 								<S.ColumnTitleP>{title}</S.ColumnTitleP>
 							</S.ColumnTitle>
 							<S.Cards>
-							{cardList.map((item) => (
+							{cardList.map((task) => (
           <Card
-            key={item.id}
-            title={item.title}
-            date={item.date}
-			status={item. status}
-            topic={item.topic}
-            theme={item.theme}
-            id={item.id}
+            key={task._id}
+            title={task.title}
+            date={task.date}
+			status={task. status}
+            topic={task.topic}
+            theme={task.theme}
+            id={task._id}
           />
         ))}
 							</S.Cards>

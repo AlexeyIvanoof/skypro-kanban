@@ -1,9 +1,10 @@
 import Calendar from "../../components/Calendar/Calendar";
 import * as S from "./CardPage.stuled"
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export function CardPage({theme}) {
-   
+   const params = useParams();
+   console.log(params.id)
     return (
         <S.PopBrowse>
         <S.PopBrowseContainer>

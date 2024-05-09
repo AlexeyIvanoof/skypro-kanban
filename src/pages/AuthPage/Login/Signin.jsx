@@ -1,8 +1,31 @@
 import * as S from "./Signin.stuled"
 import { Link } from 'react-router-dom';
+import { LoginApi } from "../../../Api";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+export function Signin({setUser}) {
 
-export function Signin() {
+	const [login, setLogin] = useState("");
+	const [password, setPassword] = useState("");
+	const [offButton, setOffButton] = useState(false);
+	const navigate = useNavigate();
+	const [error, setError] = useState(null);
+
+	const handleLogin = async () => {
+		try {
+		const response = await LoginApi(login, password);
+		setUser(response);
+		localStorage.setItem("user", JSON.stringify(response));
+		setOffButton(true);
+        navigate("/");
+		} catch (currentError) {
+		setError(currentError.message);
+		console.log(error);
+		} finally {
+		setOffButton(false);
+		}
+	};
     
     return (
  <S.Wrapper>
@@ -13,9 +36,32 @@ export function Signin() {
 						<S.ModalTtlH2>Вход</S.ModalTtlH2>
 					</div>
 		<S.ModalFormLogin id="formLogIn" action="#">
-						<S.ModalInput type="text" name="login" id="formlogin" placeholder="Эл. почта"/>
-						<S.ModalInput type="password" name="password" id="formpassword" placeholder="Пароль"/>
-						<S.ModalBtnEnter id="btnEnter"><Link to="/"><S.ModalBtnEnterA>Войти</S.ModalBtnEnterA></Link></S.ModalBtnEnter>
+						<S.ModalInput 
+						type="text" 
+						name="login" 
+						id="formlogin" 
+						placeholder="Эл. почта"
+						value={login}
+						onChange={(event) => {
+						setLogin(event.target.value);
+						}}
+						/>
+
+						<S.ModalInput 
+						type="password" 
+						name="password" 
+						id="formpassword" 
+						placeholder="Пароль"
+						value={password}
+						onChange={(event) => {
+						setPassword(event.target.value);
+						}}
+						/>
+
+						<S.ModalBtnEnter id="btnEnter">
+							<S.ModalBtnEnterA onClick={handleLogin} disabled={offButton}>Войти</S.ModalBtnEnterA>
+						</S.ModalBtnEnter>
+						
 						<S.ModalFormGroup>
 						<S.ModalFormGroupP>Нужно зарегистрироваться?</S.ModalFormGroupP>
 						<Link to="/registr"><S.ModalFormGroupA>Регистрируйтесь здесь</S.ModalFormGroupA></Link>
