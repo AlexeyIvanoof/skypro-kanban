@@ -14,7 +14,7 @@ export function Signin({setUser}) {
 
 	const handleLogin = async () => {
 		try {
-		const response = await LoginApi(login, password);
+		const response = await LoginApi({login, password});
 		setUser(response);
 		localStorage.setItem("user", JSON.stringify(response));
 		setOffButton(true);
@@ -58,8 +58,8 @@ export function Signin({setUser}) {
 						}}
 						/>
 
-						<S.ModalBtnEnter id="btnEnter">
-							<S.ModalBtnEnterA onClick={handleLogin} disabled={offButton}>Войти</S.ModalBtnEnterA>
+						<S.ModalBtnEnter id="btnEnter" onClick={handleLogin} disabled={offButton}>
+							Войти
 						</S.ModalBtnEnter>
 						
 						<S.ModalFormGroup>

@@ -41,11 +41,11 @@ export function Layout() {
     setCards([...cards, newCard]);
   }
 
-  useEffect(() => {
+ /* useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000); // 2 секунды задержки
-  }, []);
+  }, []);*/
   return (
     <>
     <GlobalStyle />

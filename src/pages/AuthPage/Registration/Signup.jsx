@@ -11,10 +11,11 @@ export function Signup({setUser}) {
 	const [name, setName] = useState("");
 	const [login, setlogin] = useState("");
 	const [password, setPassword] = useState("");
+	const [offButton, setOffButton] = useState(false);
 	
  const handleRegister = async () => {
       try {
-        const response = await RegistrationApi( login, name, password);
+        const response = await RegistrationApi({ login, name, password });
 		setUser(response);
         localStorage.setItem("user",JSON.stringify(response));
         navigate("/login");
@@ -22,7 +23,7 @@ export function Signup({setUser}) {
         setError(currentError.message);
         console.log(error);
       } finally {
-		console.log(error);
+        setOffButton(false);
       }
   };
     
@@ -64,8 +65,8 @@ export function Signup({setUser}) {
 						setPassword(event.target.value);
 						}} />
 
-						<S.ModalBtnEnter  id="SignUpEnter">
-						<S.ModalBtnSignupEntA onClick={handleRegister}>Зарегистрироваться</S.ModalBtnSignupEntA>
+						<S.ModalBtnEnter type="button" id="SignUpEnter" onClick={handleRegister} disabled={offButton}>
+						Зарегистрироваться
 						</S.ModalBtnEnter>
 
 						<S.ModalFormGroup>

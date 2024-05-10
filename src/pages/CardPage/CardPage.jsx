@@ -65,7 +65,7 @@ export function CardPage({theme}) {
                     </S.CategoriesThemeDown>
                     <S.PopBrowseBtnBrowse>
                         <div>
-                        <Link to="/cardnew"><S.BtnBrowse><S.BtnBorA>Редактировать задачу</S.BtnBorA></S.BtnBrowse></Link>
+                        <S.BtnBrowse><S.BtnBorA>Редактировать задачу</S.BtnBorA></S.BtnBrowse>
                             <S.BtnBrowse><S.BtnBorA>Удалить задачу</S.BtnBorA></S.BtnBrowse>
                         </div>
                         <Link to="/"><S.BtnBrowseClose><S.BtnBgA>Закрыть</S.BtnBgA></S.BtnBrowseClose></Link>

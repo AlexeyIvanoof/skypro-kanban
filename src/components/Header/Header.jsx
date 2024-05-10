@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import PopUserModal from '../../modal/PopUserModal/PopUserModal';
 import * as S from "./Header.stuled"
+import { Link } from 'react-router-dom';
 
-
-function Header({onCardAdd}) {
+function Header() {
     const[isOupen, setIsOupen] = useState(false)
     const handlClick = () => {
 		setIsOupen((prevState)=> !prevState)
@@ -17,8 +17,8 @@ function Header({onCardAdd}) {
 						<a href="" target="_self"><S.HeaderLogo src="logo.png" alt="logo"/></a>
 					</div>
 					<S.HeaderNav>
-						<S.HeaderBtnMainNew onClick={onCardAdd} id="btnMainNew"><a>Создать новую задачу</a></S.HeaderBtnMainNew>
-						<S.HeaderUser onClick={handlClick}>Ivan Ivanov</S.HeaderUser>
+					<Link to="/cardnew"><S.HeaderBtnMainNew id="btnMainNew"><a>Создать новую задачу</a></S.HeaderBtnMainNew></Link>
+						<S.HeaderUser onClick={handlClick}>Alexey Ivanov</S.HeaderUser>
 						{isOupen &&(<PopUserModal/>)}
 						
 					</S.HeaderNav>					

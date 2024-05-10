@@ -218,8 +218,11 @@ color: #000;
   line-height: 1;
 `;
 
+export const Input = styled.input`
 
-export const CatThemeP = styled.p`
+`;
+
+export const CatThemeP = styled.label`
 font-size: 14px;
   font-weight: 600;
   line-height: 14px;

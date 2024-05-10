@@ -11,7 +11,6 @@ import PopNewCard from "./modal/PopNewCard/PopNewCard";
 import { useState } from "react";
 
 function App() {
-  //const user = true;
   const [user, setUser] = useState(localStorage.getItem('user') || null)
 
   return (
@@ -28,10 +27,10 @@ function App() {
        user={user}
        setUser={setUser} />}>
 
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout/>}>
       <Route path="card/:id" element={<CardPage/>} />
       <Route path="/cardnew" element={<PopNewCard/>} />
-      <Route path="/exit" element={<PopUser />} />
+      <Route path="/exit" element={<PopUser/>} />
       </Route>
       </Route>
       

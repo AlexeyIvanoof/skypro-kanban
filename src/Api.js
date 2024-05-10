@@ -1,6 +1,6 @@
-export let token = "bgc0b8awbwas6g5g5k5o5s5w606g37w3cc3bo3b83k39s3co3c83c03ck" ;
-export async function GetAllTasks() {
-  //token = user.token;
+export let token ;
+export async function GetAllTasks({user}) {
+  token = user.token;
 
   const response = await fetch("https://wedev-api.sky.pro/api/kanban", 
   {
@@ -68,7 +68,7 @@ export async function DeleteTask(id) {
   }
 }
 
-export async function AddTask({ title, topic, description }) {
+export async function AddTask({ title, topic, description, status, date }) {
   const response = await fetch("https://wedev-api.sky.pro/api/kanban",
    {
     headers: {
@@ -79,6 +79,8 @@ export async function AddTask({ title, topic, description }) {
       title,
       topic,
       description,
+      status,
+      date
     }),
   });
   if (response.status !== 201) {
