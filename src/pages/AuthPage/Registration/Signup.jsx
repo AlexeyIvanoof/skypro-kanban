@@ -14,14 +14,17 @@ export function Signup({setUser}) {
 	const [offButton, setOffButton] = useState(false);
 	
  const handleRegister = async () => {
+	if (!login) throw new Error('Не введен логин!')
+		if (!name) throw new Error('Введите имя!')
+		if (!password) throw new Error('Введите пароль!')	
       try {
         const response = await RegistrationApi({ login, name, password });
 		setUser(response);
         localStorage.setItem("user",JSON.stringify(response));
         navigate("/login");
-      } catch (currentError) {
-        setError(currentError.message);
-        console.log(error);
+      } catch (error) {
+        setError(error.message);
+        
       } finally {
         setOffButton(false);
       }
@@ -68,7 +71,7 @@ export function Signup({setUser}) {
 						<S.ModalBtnEnter type="button" id="SignUpEnter" onClick={handleRegister} disabled={offButton}>
 						Зарегистрироваться
 						</S.ModalBtnEnter>
-
+						<p style={{ color: "red" }}>{error}</p>
 						<S.ModalFormGroup>
 							<S.ModalFormGroupP>Уже есть аккаунт?  <Link to="/login"><S.ModalFormGroupA>Войдите здесь</S.ModalFormGroupA></Link></S.ModalFormGroupP>
 						</S.ModalFormGroup>

@@ -7,7 +7,7 @@ import Main from './components/Main/Main';
 import { GlobalStyle } from './Global.styled';
 import { GetAllTasks } from './Api';
 
-export function Layout() {
+export function Layout({user}) {
   const [isLoading, setIsLoading] = useState(true);
   const [cards, setCards] = useState(cardList);
   const [tracksError, setTracksError] = useState(null)
@@ -17,7 +17,7 @@ export function Layout() {
       try {
         setIsLoading(true) //состояние загрузки началось
         setTracksError(null)
-        await GetAllTasks().then((cards) => {
+        await GetAllTasks({user}).then((cards) => {
           console.log(cards) //проверка что получаем из апи
           setCards(cards.tasks)
         }) //получение задач из апи
@@ -28,9 +28,9 @@ export function Layout() {
       }
     }
     getAllTracks()
-  }, [])
+  }, [user])
 
-  function onCardAdd() {
+  /*function onCardAdd() {
     const newCard = {
       id: cards.lenght + 1,
       title: "Название задачи ",
@@ -41,7 +41,7 @@ export function Layout() {
     setCards([...cards, newCard]);
   }
 
- /* useEffect(() => {
+    useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000); // 2 секунды задержки
@@ -50,7 +50,7 @@ export function Layout() {
     <>
     <GlobalStyle />
       <S.Wrapper>
-        <Header onCardAdd={onCardAdd} />
+        <Header />
         
         <Outlet /> 
 

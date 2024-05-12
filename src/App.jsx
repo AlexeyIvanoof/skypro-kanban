@@ -12,7 +12,6 @@ import { useState } from "react";
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user') || null)
-
   return (
     <Routes>
       <Route path="/login" element={<Signin
@@ -27,7 +26,10 @@ function App() {
        user={user}
        setUser={setUser} />}>
 
-      <Route path="/" element={<Layout/>}>
+      <Route path="/" element={<Layout 
+       user={user}
+       setUser={setUser} />}>
+
       <Route path="card/:id" element={<CardPage/>} />
       <Route path="/cardnew" element={<PopNewCard/>} />
       <Route path="/exit" element={<PopUser/>} />
