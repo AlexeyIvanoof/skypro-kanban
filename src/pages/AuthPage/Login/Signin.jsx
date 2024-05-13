@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { LoginApi } from "../../../Api";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../../hooks/useUser";
 
-export function Signin({setUser}) {
-
+export function Signin() {
+    const {setUser} = useUser()
 	const [login, setLogin] = useState("");
 	const [password, setPassword] = useState("");
 	const [offButton, setOffButton] = useState(false);
@@ -16,6 +17,7 @@ export function Signin({setUser}) {
 		try {
 		const response = await LoginApi({login, password});
 		setUser(response);
+		console.log(setUser)
 		localStorage.setItem("user", JSON.stringify(response));
 		setOffButton(true);
         navigate("/");

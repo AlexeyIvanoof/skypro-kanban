@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-  function PopNewCard({theme}) {
+  function PopNewCard({theme, user}) {
 
     const navigate = useNavigate();
 	const [error, setError] = useState(null);
@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 	
  const AddNewTask = async () => {
       try {
-        const response = await AddTask({ title, topic, description, status});
+        const response = await AddTask({user, title, topic, description, status});
 		setNewCards(response);
         const newCard = {
             title,
