@@ -17,7 +17,7 @@ export function Layout({user}) {
       try {
         setIsLoading(true) //состояние загрузки началось
         setTracksError(null)
-        await GetAllTasks({user}).then((cards) => {
+        await GetAllTasks(user).then((cards) => {
           console.log(cards) //проверка что получаем из апи
           setCards(cards.tasks)
         }) //получение задач из апи

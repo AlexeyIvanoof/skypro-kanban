@@ -1,5 +1,5 @@
 let token/*= "78c0b8dcb8dg84d4asc8ccccbc6g5g5k5o6g37k3cc3bo3c83d03bo3c4" ;*/
-export async function GetAllTasks({user}) {
+export async function GetAllTasks(user) {
   console.log(user)
   token = user.token
   console.log(token)
