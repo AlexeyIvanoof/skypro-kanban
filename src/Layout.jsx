@@ -6,8 +6,10 @@ import * as S from "./Layout.stuled";
 import Main from './components/Main/Main';
 import { GlobalStyle } from './Global.styled';
 import { GetAllTasks } from './Api';
+import { useUser } from './hooks/useUser';
 
-export function Layout({user}) {
+export function Layout() {
+  const { user } = useUser();
   const [isLoading, setIsLoading] = useState(true);
   const [cards, setCards] = useState(cardList);
   const [tracksError, setTracksError] = useState(null)
