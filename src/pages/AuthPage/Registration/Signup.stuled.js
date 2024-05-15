@@ -118,7 +118,8 @@ export const ModalBtnSignupEntA = styled.a`
   text-align: center;
 `;
 
- export const ModalFormGroupP = styled.p`
+ export const ModalFormGroupP = styled.div`
+ text-align: center;
   color: rgba(148, 166, 190, 0.4);
   font-size: 14px;
   font-weight: 400;
@@ -126,7 +127,7 @@ export const ModalBtnSignupEntA = styled.a`
   letter-spacing: -0.14px;
 `;
 
-export const ModalFormGroupA = styled.a`
+export const ModalFormGroupA = styled.p`
   color: rgba(148, 166, 190, 0.4);
   font-size: 14px;
   font-weight: 400;

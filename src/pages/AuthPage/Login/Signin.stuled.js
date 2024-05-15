@@ -126,7 +126,7 @@ width: 100%;
     letter-spacing: -0.14px;
   `;
 
-  export const ModalFormGroupA = styled.a`
+  export const ModalFormGroupA = styled.p`
     color: rgba(148, 166, 190, 0.4);
     font-size: 14px;
     font-weight: 400;

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { RegistrationApi } from "../../../Api";
+import { useUser } from "../../../hooks/useUser";
 
-export function Signup({setUser}) {
-	
+export function Signup() {
+	const {setUser} = useUser()
 	const navigate = useNavigate();
 	const [error, setError] = useState(null);
 	const [name, setName] = useState("");
@@ -13,7 +14,8 @@ export function Signup({setUser}) {
 	const [password, setPassword] = useState("");
 	const [offButton, setOffButton] = useState(false);
 	
- const handleRegister = async () => {
+ const handleRegister = async (event) => {
+	event.preventDefault
 	if (!login) throw new Error('Не введен логин!')
 		if (!name) throw new Error('Введите имя!')
 		if (!password) throw new Error('Введите пароль!')	
@@ -29,7 +31,8 @@ export function Signup({setUser}) {
         setOffButton(false);
       }
   };
-    
+ 
+
     return (
         <S.Wrapper>
         <S.ContainerSignin>
@@ -68,7 +71,7 @@ export function Signup({setUser}) {
 						setPassword(event.target.value);
 						}} />
 
-						<S.ModalBtnEnter type="button" id="SignUpEnter" onClick={handleRegister} disabled={offButton}>
+						<S.ModalBtnEnter type="button" id="SignUpEnter" onSubmit = {handleRegister}  disabled={offButton}>
 						Зарегистрироваться
 						</S.ModalBtnEnter>
 						<p style={{ color: "red" }}>{error}</p>
