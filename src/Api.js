@@ -11,6 +11,9 @@ export async function GetAllTasks({user}) {
   });
   if (response.status !== 200) {
     throw new Error("Нет авторизации");
+  }
+  if (response.status === 500) {
+      throw new Error("Сервер сломался");
   } else {
     const data = await response.json();
     return data;
@@ -29,7 +32,13 @@ export async function LoginApi({ login, password }) {
 
   if (response.status === 401) {
     throw new Error("Нет авторизации");
-  } else {
+  } 
+  if (response.status === 400) {
+    throw new Error("Неправильный запрос");
+  }
+    if (response.status === 500) {
+      throw new Error("Сервер сломался");
+    }else {
     const data = await response.json();
     return data;
   }
@@ -47,7 +56,13 @@ export async function RegistrationApi({ login, name, password }) {
   });
   if (response.status === 401) {
     throw new Error("Нет авторизации");
-  } else {
+  }
+  if (response.status === 400) {
+    throw new Error("Неправильный запрос");
+  }
+    if (response.status === 500) {
+      throw new Error("Сервер сломался");
+    }else {
     const data = await response.json();
     return data;
   }
@@ -64,7 +79,13 @@ export async function DeleteTask({id, user}) {
 
   if (response.status !== 201) {
     throw new Error("Ошибка удаления задачи");
-  } else {
+  }
+   if (response.status === 400) {
+    throw new Error("Неправильный запрос");
+  }
+    if (response.status === 500) {
+      throw new Error("Сервер сломался");
+    }else {
     const data = await response.json();
     return data;
   }
@@ -88,7 +109,13 @@ export async function AddTask({user, title, topic, description, status, date }) 
   });
   if (response.status !== 201) {
     throw new Error("Ошибка при добавлении задачи");
-  } else {
+  }
+   if (response.status === 400) {
+    throw new Error("Неправильный запрос");
+  }
+    if (response.status === 500) {
+      throw new Error("Сервер сломался");
+    }else {
     const data = await response.json();
     return data;
   }

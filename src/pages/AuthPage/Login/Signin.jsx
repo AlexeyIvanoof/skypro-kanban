@@ -15,6 +15,8 @@ export function Signin() {
 
 	const handleLogin = async () => {
 		try {
+		if (!login) throw new Error('Не введен логин!')
+		if (!password) throw new Error('Введите пароль!')	
 		const response = await LoginApi({login, password});
 		setUser(response);
 		console.log(setUser)

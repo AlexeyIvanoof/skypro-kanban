@@ -16,10 +16,10 @@ export function Signup() {
 	
  const handleRegister = async (event) => {
 	event.preventDefault
-	if (!login) throw new Error('Не введен логин!')
-		if (!name) throw new Error('Введите имя!')
-		if (!password) throw new Error('Введите пароль!')	
       try {
+		if (!login) throw new Error('Не введен логин!')
+			if (!name) throw new Error('Введите имя!')
+			if (!password) throw new Error('Введите пароль!')	
         const response = await RegistrationApi({ login, name, password });
 		setUser(response);
         localStorage.setItem("user",JSON.stringify(response));
