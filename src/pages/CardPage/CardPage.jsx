@@ -1,9 +1,11 @@
 import Calendar from "../../components/Calendar/Calendar";
 import * as S from "./CardPage.stuled"
 import { Link, useParams } from 'react-router-dom';
+import { useState } from "react";
 
 export function CardPage({theme}) {
    const params = useParams();
+   const [selected, setSelected] = useState(null);
    console.log(params.id)
     return (
         <S.PopBrowse>
@@ -32,7 +34,7 @@ export function CardPage({theme}) {
                             </S.FormBrowseBlock>
                         </S.PopBrowseForm>
                        
-                            <Calendar/>
+                            <Calendar selected={selected} setSelected={setSelected}/>
                                
                     </S.PopBrowseWrap>
                     <S.CategoriesThemeDown>

@@ -15,11 +15,11 @@ export function Signup() {
 	const [offButton, setOffButton] = useState(false);
 	
  const handleRegister = async (event) => {
-	event.preventDefault
+	event.preventDefault()
       try {
 		if (!login) throw new Error('Не введен логин!')
-			if (!name) throw new Error('Введите имя!')
-			if (!password) throw new Error('Введите пароль!')	
+		if (!name) throw new Error('Введите имя!')
+		if (!password) throw new Error('Введите пароль!')	
         const response = await RegistrationApi({ login, name, password });
 		setUser(response);
         localStorage.setItem("user",JSON.stringify(response));
@@ -41,7 +41,7 @@ export function Signup() {
 					<div>
 						<S.ModalTtlH2>Регистрация</S.ModalTtlH2>
 					</div>
-		<S.ModalFormLogin id="formLogIn" action="#">
+		<S.ModalFormLogin id="formLogIn" onSubmit = {handleRegister}>
 						<S.ModalInput
                          type="text" 
                          name="first-name" 
@@ -71,7 +71,7 @@ export function Signup() {
 						setPassword(event.target.value);
 						}} />
 
-						<S.ModalBtnEnter type="button" id="SignUpEnter" onSubmit = {handleRegister}  disabled={offButton}>
+						<S.ModalBtnEnter tipe="submit" id="SignUpEnter"   disabled={offButton}>
 						Зарегистрироваться
 						</S.ModalBtnEnter>
 						<p style={{ color: "red" }}>{error}</p>

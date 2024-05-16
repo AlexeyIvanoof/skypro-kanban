@@ -34,7 +34,7 @@ export async function LoginApi({ login, password }) {
     throw new Error("Нет авторизации");
   } 
   if (response.status === 400) {
-    throw new Error("Неправильный запрос");
+    throw new Error("Неверный логин или пароль");
   }
     if (response.status === 500) {
       throw new Error("Сервер сломался");
@@ -58,7 +58,7 @@ export async function RegistrationApi({ login, name, password }) {
     throw new Error("Нет авторизации");
   }
   if (response.status === 400) {
-    throw new Error("Неправильный запрос");
+    throw new Error("Пользователь с таким логином уже существует");
   }
     if (response.status === 500) {
       throw new Error("Сервер сломался");

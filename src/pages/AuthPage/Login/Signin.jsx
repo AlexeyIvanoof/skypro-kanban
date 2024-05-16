@@ -13,7 +13,8 @@ export function Signin() {
 	const navigate = useNavigate();
 	const [error, setError] = useState(null);
 
-	const handleLogin = async () => {
+	const handleLogin = async (event) => {
+		event.preventDefault()
 		try {
 		if (!login) throw new Error('Не введен логин!')
 		if (!password) throw new Error('Введите пароль!')	
@@ -39,7 +40,7 @@ export function Signin() {
 					<div>
 						<S.ModalTtlH2>Вход</S.ModalTtlH2>
 					</div>
-		<S.ModalFormLogin id="formLogIn" action="#">
+		<S.ModalFormLogin id="formLogIn" onSubmit ={handleLogin}>
 						<S.ModalInput 
 						type="text" 
 						name="login" 
@@ -62,10 +63,10 @@ export function Signin() {
 						}}
 						/>
 
-						<S.ModalBtnEnter id="btnEnter" onClick={handleLogin} disabled={offButton}>
+						<S.ModalBtnEnter id="btnEnter" tipe="submit" disabled={offButton}>
 							Войти
 						</S.ModalBtnEnter>
-						
+						<p style={{ color: "red" }}>{error}</p>
 						<S.ModalFormGroup>
 						<S.ModalFormGroupP>Нужно зарегистрироваться?</S.ModalFormGroupP>
 						<Link to="/registr"><S.ModalFormGroupA>Регистрируйтесь здесь</S.ModalFormGroupA></Link>
