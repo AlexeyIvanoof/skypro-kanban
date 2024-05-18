@@ -1,6 +1,8 @@
 import * as S from './Card.styled'
+import { Link } from 'react-router-dom'
 
-function Card ({topic, title, date, theme}){
+function Card ({topic, title, date, theme, id}){
+
     return(
 <S.CardsItem>
 									<S.CardsCard >
@@ -8,13 +10,13 @@ function Card ({topic, title, date, theme}){
 											<S.CardTheme $themeColor={theme}>
 											<S.ThemeP>{topic}</S.ThemeP>
 											</S.CardTheme>
-											<a href="#popBrowse" target="_self">
+											<a><Link to={`/card/${id}`}>
 											<S.CardBtn>
               <S.CardBtnDiv></S.CardBtnDiv>
               <S.CardBtnDiv></S.CardBtnDiv>
               <S.CardBtnDiv></S.CardBtnDiv>
             </S.CardBtn>
-											</a>
+			</Link></a>
 										</S.CardGroup>
 										<S.CardContent>
 											<a href="" target="_blank">

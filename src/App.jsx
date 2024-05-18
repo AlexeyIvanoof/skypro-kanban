@@ -1,54 +1,35 @@
-import * as S from "./App.stuled.js"
-import { GlobalStyle } from './Global.styled.js';
-import { useState, useEffect } from 'react'
-import './App.css'
-import Header from './components/Header/Header' 
-import Main from './components/Main/Main'
-import PopBrowse from './modal/PopBrowse/PopBrowse'
-import PopNewCard from './modal/PopNewCard/PopNewCard'
-import PopUser from './modal/PopUser/PopUser'
-import cardList from './data'
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { Signup } from "./pages/AuthPage/Registration/Signup";
+import { Signin } from "./pages/AuthPage/Login/Signin";
+import { NotFound } from "./pages/NotFound/NotFound"
+import { CardPage } from "./pages/CardPage/CardPage";
+import { Layout } from "./Layout";
+import PrivateRoute from "./PrivateRoute"
+import PopUser from "./pages/Exit/ExitPage";
+import PopNewCard from "./modal/PopNewCard/PopNewCard";
+
+
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [cards, setCards] = useState(cardList);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // 2 секунды задержки
-  }, []);
-
-  function onCardAdd() {
-    const newCard = {
-      id: cards.lenght + 1,
-      title: "Название задачи ",
-      date: "22.02.24",
-      topic: "Web Design",
-      status: "Без статуса",
-    };
-    setCards([...cards,  newCard]);
-  }
+ 
   return (
-    <>
-    <GlobalStyle/>
-    <S.Wrapper>
-			
-		<PopUser/>
-	<PopNewCard/>
-    <PopBrowse/>
-		<Header onCardAdd={onCardAdd} />
-    {isLoading ? (
-          <div>
-           <S.Loading>...Данные загружаются</S.Loading>
-          </div>
-        ) : (
-          <Main cards={cards} />
-        )}
-		
-    </S.Wrapper>
-    </>
-  )
+    <Routes>
+      <Route path="/login" element={<Signin/>} />
+
+      <Route path="/registr" element={<Signup />} />
+
+      <Route element={<PrivateRoute/>}>
+      <Route path="/" element={<Layout/>}>
+      <Route path="card/:id" element={<CardPage/>} />
+      <Route path="/cardnew" element={<PopNewCard/>} />
+      <Route path="/exit" element={<PopUser/>} />
+      </Route>
+      </Route>
+      
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;

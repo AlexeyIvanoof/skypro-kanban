@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const CalendarContent  = styled.div`
 margin-bottom: 12px;
+margin-left: 30px;
+`;
+
+export const CalendarContentP  = styled.p`
+margin-left: 20px;
 `;
 
 export const CalendarDaysNames  = styled.div`
