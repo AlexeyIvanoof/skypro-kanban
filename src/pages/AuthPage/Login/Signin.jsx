@@ -63,7 +63,7 @@ export function Signin() {
 						}}
 						/>
 
-						<S.ModalBtnEnter id="btnEnter" tipe="submit" disabled={offButton}>
+						<S.ModalBtnEnter id="btnEnter" type="submit" disabled={offButton}>
 							Войти
 						</S.ModalBtnEnter>
 						<p style={{ color: "red" }}>{error}</p>

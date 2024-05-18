@@ -71,7 +71,7 @@ export function Signup() {
 						setPassword(event.target.value);
 						}} />
 
-						<S.ModalBtnEnter tipe="submit" id="SignUpEnter"   disabled={offButton}>
+						<S.ModalBtnEnter type="submit" id="SignUpEnter"   disabled={offButton}>
 						Зарегистрироваться
 						</S.ModalBtnEnter>
 						<p style={{ color: "red" }}>{error}</p>

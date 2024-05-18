@@ -70,6 +70,7 @@ export async function RegistrationApi({ login, name, password }) {
 
 export async function DeleteTask({id, user}) {
   token = user.token
+  console.log(token)
   const response = await fetch(`https://wedev-api.sky.pro/api/kanban/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -80,9 +81,6 @@ export async function DeleteTask({id, user}) {
   if (response.status !== 201) {
     throw new Error("Ошибка удаления задачи");
   }
-   if (response.status === 400) {
-    throw new Error("Неправильный запрос");
-  }
     if (response.status === 500) {
       throw new Error("Сервер сломался");
     }else {
@@ -91,21 +89,16 @@ export async function DeleteTask({id, user}) {
   }
 }
 
-export async function AddTask({user, title, topic, description, status, date }) {
+export async function AddTask({user, newCard}) {
   token = user.token
+  console.log(token)
   const response = await fetch("https://wedev-api.sky.pro/api/kanban",
    {
     headers: {
       Authorization: `Bearer ${token}`,
     },
     method: "POST",
-    body: JSON.stringify({
-      title,
-      topic,
-      description,
-      status,
-      date
-    }),
+    body: JSON.stringify(newCard),
   });
   if (response.status !== 201) {
     throw new Error("Ошибка при добавлении задачи");

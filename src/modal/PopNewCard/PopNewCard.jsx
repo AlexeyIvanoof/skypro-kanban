@@ -5,36 +5,63 @@ import { AddTask } from "../../Api";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../hooks/useUser";
-
+import { useTasks } from "../../hooks/useTasks";
 
   function PopNewCard({theme}) {
     const { user } = useUser();
     const navigate = useNavigate();
+    const {setCards} = useTasks();
 	const [error, setError] = useState(null);
-	const [title, setTitle] = useState("");
-	const [topic, setTopic] = useState("");
-	const [description, setDescription] = useState("");
-    const [status, setStatus] = useState("");
-    const [newCards, setNewCards] = useState(null);
+	//const [title, setTitle] = useState("");
+	//const [setTopic] = useState("");
+	//const [description, setDescription] = useState("");
+    //const [status, setStatus] = useState("");
+    //const [setNewCards] = useState(null);
     const [selected, setSelected] = useState(null);
-	
- const AddNewTask = async () => {
+    const [inputValue, setInputValue] = useState({
+        title: "",
+        topic: "Research",
+        description: "",
+        status: "Без статуса",
+        date: new Date()
+      });
+ /*const AddNewTask = async () => {
       try {
         const response = await AddTask(user,{ title, topic, description, status});
-		setNewCards(response);
-        const newCard = {
-            title,
-            topic,
-            status,
-            description,
-          };
-          setNewCards([...newCards, newCard]);
+		setNewCards(response.tasks);
+       
         navigate("/");
       } catch (currentError) {
         setError(currentError.message);
         console.log(error);
       }
+  };*/
+
+  const AddNewTask = async () => {
+  const title = !inputValue.title ? "Новая задача": inputValue.title;
+  const topic = !inputValue.topic ? "Research": inputValue.topic;
+  const status = !inputValue.status ? "Без статуса": inputValue.status;
+  const newCard = {
+    ...inputValue,
+    title,
+    topic,
+    status
+  }
+
+    AddTask(user,{newCard})
+    .then((data) =>{
+        setCards(data.tasks)
+        navigate("/");
+    }) .catch ((currentError) => {
+        setError(currentError.message);
+        console.log(error);
+      })
   };
+
+const onChangeInput = (e) => {
+    const {value, name} = e.target
+    setInputValue({...inputValue, [name]: value})
+}
 
     return (
         <S.PopNewCard id="popNewCard">
@@ -50,13 +77,10 @@ import { useUser } from "../../hooks/useUser";
                                 <S.Label htmlFor="formTitle">Название задачи</S.Label>
                                 <S.FormNewInput 
                                 type="text" 
-                                name="name" 
+                                name="title" 
                                 id="formTitle" 
                                 placeholder="Введите название задачи..." autoFocus
-                                value={title}
-                                onChange={(event) => {
-                                setTitle(event.target.value);
-                                }}
+                                onChange={onChangeInput}
                                 />
                             </S.FormNewBlock>
                             
@@ -64,26 +88,20 @@ import { useUser } from "../../hooks/useUser";
                                 <S.Label htmlFor="formTitle">Статус</S.Label>
                                 <S.FormNewInput 
                                 type="text" 
-                                name="name" 
+                                name="status" 
                                 id="formTitle" 
                                 placeholder="Введите статус задачи..." autoFocus
-                                value={status}
-                                onChange={(event) => {
-                                setStatus(event.target.value);
-                                }}
+                                onChange={onChangeInput}
                                 />
                             </S.FormNewBlock>
 
                             <S.FormNewBlock>
                                 <S.Label  htmlFor="textArea" className="subttl">Описание задачи</S.Label>
                                 <S.FormNewArea 
-                                name="text" 
+                                name="description" 
                                 id="textArea"  
                                 placeholder="Введите описание задачи..."
-                                value={description}
-                                onChange={(event) => {
-                                setDescription(event.target.value);
-                                }}>
+                                onChange={onChangeInput}>
                                 </S.FormNewArea>
 
                             </S.FormNewBlock>
@@ -100,9 +118,9 @@ import { useUser } from "../../hooks/useUser";
                         <S.Input
                            type="radio"
                            value="Web Design"
-                           onChange={(event) => {
-                           setTopic(event.target.value);
-                           }}
+                           onChange={(e) =>
+                            setInputValue({ ...inputValue, topic: e.target.value })
+                          }
                        />
                          <S.CatThemeP htmlFor="radio1">Web Design</S.CatThemeP>
                          </S.CategoriesTheme>
@@ -111,9 +129,9 @@ import { useUser } from "../../hooks/useUser";
                         <S.Input
                            type="radio"
                            value="Research"
-                           onChange={(event) => {
-                           setTopic(event.target.value);
-                           }}
+                           onChange={(e) =>
+                            setInputValue({ ...inputValue, topic: e.target.value })
+                          }
                        />
                          <S.CatThemeP htmlFor="radio1">Research</S.CatThemeP>
                          </S.CategoriesTheme>
@@ -122,15 +140,16 @@ import { useUser } from "../../hooks/useUser";
                         <S.Input
                            type="radio"
                            value="Copywriting"
-                           onChange={(event) => {
-                           setTopic(event.target.value);
-                           }}
+                           onChange={(e) =>
+                            setInputValue({ ...inputValue, topic: e.target.value })
+                          }
                        />
                          <S.CatThemeP htmlFor="radio1">Copywriting</S.CatThemeP>
                          </S.CategoriesTheme>
 
                         </S.CategoriesThemes>
                     </S.PopNewCardCategories>
+                    {error && error}
                     <S.Button id="btnCreate"onClick={AddNewTask}>Создать задачу</S.Button>
                 </S.PopNewCardContent>
             </S.PopNewCardBlock>
