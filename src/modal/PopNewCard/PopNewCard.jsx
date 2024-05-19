@@ -11,31 +11,15 @@ import { useTasks } from "../../hooks/useTasks";
     const { user } = useUser();
     const navigate = useNavigate();
     const {setCards} = useTasks();
-	const [error, setError] = useState(null);
-	//const [title, setTitle] = useState("");
-	//const [setTopic] = useState("");
-	//const [description, setDescription] = useState("");
-    //const [status, setStatus] = useState("");
-    //const [setNewCards] = useState(null);
+    const [error, setError] = useState(null);
     const [selected, setSelected] = useState(null);
     const [inputValue, setInputValue] = useState({
         title: "",
-        topic: "Research",
+        topic: "",
         description: "",
-        status: "Без статуса",
+        status: "",
         date: new Date()
       });
- /*const AddNewTask = async () => {
-      try {
-        const response = await AddTask(user,{ title, topic, description, status});
-		setNewCards(response.tasks);
-       
-        navigate("/");
-      } catch (currentError) {
-        setError(currentError.message);
-        console.log(error);
-      }
-  };*/
 
   const AddNewTask = async () => {
   const title = !inputValue.title ? "Новая задача": inputValue.title;
@@ -45,10 +29,10 @@ import { useTasks } from "../../hooks/useTasks";
     ...inputValue,
     title,
     topic,
-    status
+    status,
   }
 
-    AddTask(user,{newCard})
+    AddTask({user, newCard})
     .then((data) =>{
         setCards(data.tasks)
         navigate("/");

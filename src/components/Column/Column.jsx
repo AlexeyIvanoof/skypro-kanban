@@ -13,7 +13,7 @@ function Column ({title, cardList}){
             key={task._id}
             title={task.title}
             date={task.date}
-			status={task. status}
+            status={task. status}
             topic={task.topic}
             theme={task.theme}
             id={task._id}

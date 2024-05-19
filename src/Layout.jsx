@@ -32,22 +32,6 @@ export function Layout() {
     getAllTracks()
   }, [user])
 
-  /*function onCardAdd() {
-    const newCard = {
-      id: cards.lenght + 1,
-      title: "Название задачи ",
-      date: "22.02.24",
-      topic: "Web Design",
-      status: "Без статуса",
-    };
-    setCards([...cards, newCard]);
-  }
-
-    useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // 2 секунды задержки
-  }, []);*/
   return (
     <>
     <GlobalStyle />

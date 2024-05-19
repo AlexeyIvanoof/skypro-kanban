@@ -90,8 +90,9 @@ export async function DeleteTask({id, user}) {
 }
 
 export async function AddTask({user, newCard}) {
-  token = user.token
+  token = user.user.token
   console.log(token)
+  console.log(newCard)
   const response = await fetch("https://wedev-api.sky.pro/api/kanban",
    {
     headers: {
