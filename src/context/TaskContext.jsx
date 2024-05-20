@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const TaskContext = createContext(null);
 
 export function TaskProvider({ children }) {
-  const [cards, setCards] = useState(null);
+  const [cards, setCards] = useState([]);
   const navigate = useNavigate();
 
   function updateTask(data) {

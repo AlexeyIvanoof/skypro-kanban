@@ -12,13 +12,12 @@ import { useTasks } from "../../hooks/useTasks";
     const navigate = useNavigate();
     const {setCards} = useTasks();
     const [error, setError] = useState(null);
-    const [selected, setSelected] = useState(null);
+    const [date, setDate] = useState(new Date());
     const [inputValue, setInputValue] = useState({
         title: "",
         topic: "",
         description: "",
         status: "",
-        date: new Date()
       });
 
   const AddNewTask = async () => {
@@ -26,11 +25,12 @@ import { useTasks } from "../../hooks/useTasks";
   const topic = !inputValue.topic ? "Research": inputValue.topic;
   const status = !inputValue.status ? "Без статуса": inputValue.status;
   const newCard = {
-    ...inputValue,
+    description: inputValue.description,
     title,
     topic,
     status,
-  }
+    date,
+  };
 
     AddTask({user, newCard})
     .then((data) =>{
@@ -91,7 +91,7 @@ const onChangeInput = (e) => {
                             </S.FormNewBlock>
                         </S.PopNewCardForm>
                            
-            <Calendar selected={selected} setSelected={setSelected}/> 
+            <Calendar selected={date} setSelected={setDate}/> 
                         
                     </S.PopNewCardWrap>
                     <S.PopNewCardCategories>
