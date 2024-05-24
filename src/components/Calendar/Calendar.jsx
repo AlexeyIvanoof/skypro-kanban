@@ -5,9 +5,9 @@ import { format } from "date-fns";
 import { DayPicker } from "react-day-picker";
 
 export default function Calendar({ selected, setSelected }) {
-	let footer = <S.CalendarContentP>Пожалуйста, введите дату</S.CalendarContentP>;
+	let footer = <S.CalendarContentP>Выберите срок исполнения</S.CalendarContentP>;
 	if (selected) {
-	footer = <S.CalendarContentP>Вы выбрали {format(selected, "PP", { locale: ru })}.</S.CalendarContentP>;
+	footer = <S.CalendarContentP>Срок исполнения {format(selected, "PP", { locale: ru })}.</S.CalendarContentP>;
 	}
 
     return(

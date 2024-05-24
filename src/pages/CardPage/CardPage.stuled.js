@@ -46,7 +46,7 @@ export const PopBrowse = styled.div`
   `;
 
   export const PopBrowseContentThemeDown = styled.div`
-    display: none;
+    
     margin-bottom: 20px;
   `;
 
@@ -95,7 +95,7 @@ export const PopBrowse = styled.div`
     align-items: flex-start;
     justify-content: space-between;
     margin-right: 8px;
-    display: none;
+   
   `;
 
   export const BtnBrowse = styled.button`
@@ -286,7 +286,7 @@ width: 18px;
   `;
 
   export const CategoriesThemeDown = styled.div`
-  display: none;
+  
   margin-bottom: 20px;
 `;
 
@@ -323,3 +323,6 @@ background-color: ${({ $themeColor }) =>
 `;
 
 
+export const Input = styled.input`
+
+`;

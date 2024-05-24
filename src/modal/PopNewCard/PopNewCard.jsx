@@ -89,6 +89,7 @@ const onChangeInput = (e) => {
                                 </S.FormNewArea>
 
                             </S.FormNewBlock>
+                            <S.ErrorStyle>{error && error}</S.ErrorStyle>
                         </S.PopNewCardForm>
                            
             <Calendar selected={date} setSelected={setDate}/> 
@@ -133,7 +134,7 @@ const onChangeInput = (e) => {
 
                         </S.CategoriesThemes>
                     </S.PopNewCardCategories>
-                    {error && error}
+                   
                     <S.Button id="btnCreate"onClick={AddNewTask}>Создать задачу</S.Button>
                 </S.PopNewCardContent>
             </S.PopNewCardBlock>

@@ -69,7 +69,6 @@ export const PopNewCard = styled.div `
     max-width: 370px;
     width: 100%;
     display: block;
-    margin-bottom: 20px;
   `;
 
   export const FormNewBlock = styled.div `
@@ -244,6 +243,9 @@ display: inline-block;
   ${CatThemeP} {
     color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#06b16e"};
   }
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export const CategoriesThemes = styled.div`
@@ -272,4 +274,12 @@ width: 132px;
   &:hover {
     background-color: #33399b;
   }
+`;
+
+export const ErrorStyle = styled.p`
+margin-bottom: 14px;
+color: red;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
 `;

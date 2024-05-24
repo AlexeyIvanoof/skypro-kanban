@@ -9,8 +9,6 @@ import PrivateRoute from "./PrivateRoute"
 import PopUser from "./pages/Exit/ExitPage";
 import PopNewCard from "./modal/PopNewCard/PopNewCard";
 
-
-
 function App() {
  
   return (
