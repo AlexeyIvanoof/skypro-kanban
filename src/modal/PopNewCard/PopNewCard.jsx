@@ -6,8 +6,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../hooks/useUser";
 import { useTasks } from "../../hooks/useTasks";
+import { topicName } from "../../ColorStyles/topic";
 
-  function PopNewCard({theme}) {
+  function PopNewCard() {
     const { user } = useUser();
     const navigate = useNavigate();
     const {setCards} = useTasks();
@@ -99,7 +100,7 @@ const onChangeInput = (e) => {
                         <S.CategoriesP>Категория</S.CategoriesP>
                         <S.CategoriesThemes>
                             
-                        <S.CategoriesTheme $themeColor={theme}>
+                        <S.CategoriesTheme $themeColor={topicName[inputValue.topic]}>
                         <S.Input
                            type="radio"
                            value="Web Design"
@@ -110,7 +111,7 @@ const onChangeInput = (e) => {
                          <S.CatThemeP htmlFor="radio1">Web Design</S.CatThemeP>
                          </S.CategoriesTheme>
 
-                             <S.CategoriesTheme $themeColor={theme}>
+                             <S.CategoriesTheme $themeColor={topicName[inputValue.topic]}>
                         <S.Input
                            type="radio"
                            value="Research"
@@ -118,10 +119,10 @@ const onChangeInput = (e) => {
                             setInputValue({ ...inputValue, topic: e.target.value })
                           }
                        />
-                         <S.CatThemeP htmlFor="radio1">Research</S.CatThemeP>
+                         <S.CatThemeP htmlFor="radio2">Research</S.CatThemeP>
                          </S.CategoriesTheme>
 
-                         <S.CategoriesTheme $themeColor={theme}>
+                         <S.CategoriesTheme $themeColor={topicName[inputValue.topic]}>
                         <S.Input
                            type="radio"
                            value="Copywriting"
@@ -129,7 +130,7 @@ const onChangeInput = (e) => {
                             setInputValue({ ...inputValue, topic: e.target.value })
                           }
                        />
-                         <S.CatThemeP htmlFor="radio1">Copywriting</S.CatThemeP>
+                         <S.CatThemeP htmlFor="radio3">Copywriting</S.CatThemeP>
                          </S.CategoriesTheme>
 
                         </S.CategoriesThemes>

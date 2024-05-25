@@ -1,14 +1,15 @@
 import * as S from './Card.styled'
 import { Link } from 'react-router-dom'
 import { format } from "date-fns";
+import { topicName } from '../../ColorStyles/topic';
 
-function Card ({topic, title, date, theme, id}){
+function Card ({topic, title, date, id}){
 	const formattedDate = format(date, "dd.MM.yy");
     return(
 <S.CardsItem>
 									<S.CardsCard >
 										<S.CardGroup>
-											<S.CardTheme $themeColor={theme}>
+											<S.CardTheme $themeColor={topicName[topic]}>
 											<S.ThemeP>{topic}</S.ThemeP>
 											</S.CardTheme>
 											<a><Link to={`/card/${id}`}>

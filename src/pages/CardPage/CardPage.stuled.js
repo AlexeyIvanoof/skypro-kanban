@@ -313,7 +313,6 @@ height: 30px;
 padding: 8px 20px;
 border-radius: 24px;
 margin-right: 7px;
-opacity: 0.4;
 background-color: ${({ $themeColor }) =>
   topicStyles[$themeColor]?.backgroundColor || "#b4fdd1"};
 

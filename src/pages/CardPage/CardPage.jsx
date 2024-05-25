@@ -7,8 +7,9 @@ import { DeleteTask } from "../../Api";
 import { useUser } from "../../hooks/useUser";
 import { useNavigate } from "react-router-dom";
 import { EditTask } from "../../Api";
+import { topicName } from "../../ColorStyles/topic";
 
-export function CardPage({theme}) {
+export function CardPage() {
    const {user} = useUser();
    const { id } = useParams();
    const [date, setDate] = useState(new Date());
@@ -80,7 +81,7 @@ export function CardPage({theme}) {
                 <S.PopBrowseContent>
                     <S.PopBrowseTopBlock>
                         <S.PopBrowseTtl>{currentCard.title}</S.PopBrowseTtl>
-                        <S.CategoriesTheme $themeColor={theme}>
+                        <S.CategoriesTheme $themeColor={topicName[inputValue.topic]}>
                             <S.ThemesP>{currentCard.topic}</S.ThemesP>
                         </S.CategoriesTheme>
                     </S.PopBrowseTopBlock>
@@ -99,7 +100,8 @@ export function CardPage({theme}) {
                                             <S.FormBrowseArea
                                                 name="description"
                                                 id="textArea"
-                                                readOnly placeholder={currentCard.description}
+                                                //placeholder={currentCard.description}
+                                                value={currentCard.description}
                                             ></S.FormBrowseArea>
                                         </S.FormBrowseBlock>
                                     </S.PopBrowseForm>
@@ -158,6 +160,7 @@ export function CardPage({theme}) {
                                                     name="description"
                                                     id="textArea"
                                                     placeholder={currentCard.description}
+                                                   // value={currentCard.description}
                                                     onChange={onChangeInput}>
 
                                                 </S.FormBrowseArea>
