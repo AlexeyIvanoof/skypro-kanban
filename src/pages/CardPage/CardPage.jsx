@@ -89,9 +89,9 @@ export function CardPage() {
                     <><div>
                                 <S.StatusSubttl>Статус</S.StatusSubttl>
                                 <S.StatusThemes>
-                                    <S.StatusTheme>
-                                        <S.StatusThemeP>{currentCard.status}</S.StatusThemeP>
-                                    </S.StatusTheme>
+                                    <S.Theme>
+                                        <S.ThemeP>{currentCard.status}</S.ThemeP>
+                                    </S.Theme>
                                 </S.StatusThemes>
                             </div><S.PopBrowseWrap>
                                     <S.PopBrowseForm id="formBrowseCard" action="#">
@@ -112,45 +112,55 @@ export function CardPage() {
                         <><div>
                                     <S.StatusSubttl>Статус</S.StatusSubttl>
                                     <S.StatusThemes>
-                                        <S.StatusTheme>
-                                            <S.Input
+                                    <label> 
+                                    <S.StatusThemesInput
                                                 type="radio"
                                                 value="Без статуса"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
+                                        <S.StatusTheme>
                                             <S.StatusThemeP htmlFor="radio1">Без статуса</S.StatusThemeP>
                                         </S.StatusTheme>
-                                        <S.StatusTheme>
-                                            <S.Input
+                                        </label>
+
+                                        <label>
+                                        <S.StatusThemesInput
                                                 type="radio"
                                                 value="Нужно сделать"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
+                                        <S.StatusTheme>
                                             <S.StatusThemeP htmlFor="radio1">Нужно сделать</S.StatusThemeP>
                                         </S.StatusTheme>
+                                        </label>
 
-                                        <S.StatusTheme>
-                                            <S.Input
+                                        <label>
+                                        <S.StatusThemesInput
                                                 type="radio"
                                                 value="В работе"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
+                                        <S.StatusTheme>
                                             <S.StatusThemeP htmlFor="radio1">В работе</S.StatusThemeP>
                                         </S.StatusTheme>
+                                        </label>
 
-                                        <S.StatusTheme>
-                                            <S.Input
+                                        <label>
+                                        <S.StatusThemesInput
                                                 type="radio"
                                                 value="Тестирование"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
+                                        <S.StatusTheme>
                                             <S.StatusThemeP htmlFor="radio1">Тестирование</S.StatusThemeP>
                                         </S.StatusTheme>
+                                        </label>
 
-                                        <S.StatusTheme>
-                                            <S.Input
+                                        <label>
+                                        <S.StatusThemesInput
                                                 type="radio"
                                                 value="Готово"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
+                                        <S.StatusTheme>
                                             <S.StatusThemeP htmlFor="radio1">Готово</S.StatusThemeP>
                                         </S.StatusTheme>
-
+                                        </label>
                                     </S.StatusThemes>
                                 </div><S.PopBrowseWrap>
                                         <S.PopBrowseForm id="formBrowseCard" action="#">

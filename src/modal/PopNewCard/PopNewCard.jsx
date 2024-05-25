@@ -99,39 +99,50 @@ const onChangeInput = (e) => {
                     <S.PopNewCardCategories>
                         <S.CategoriesP>Категория</S.CategoriesP>
                         <S.CategoriesThemes>
-                            
-                        <S.CategoriesTheme $themeColor={topicName[inputValue.topic]}>
-                        <S.Input
+                        <label> 
+                        <S.CategoriesWebDesignInput
                            type="radio"
+                           id="radio1"
                            value="Web Design"
                            onChange={(e) =>
                             setInputValue({ ...inputValue, topic: e.target.value })
                           }
                        />
-                         <S.CatThemeP htmlFor="radio1">Web Design</S.CatThemeP>
-                         </S.CategoriesTheme>
+                        <S.CategoriesHideWebDesign $themeColor={topicName[inputValue.topic]}>
+                      
+                         <S.WebDesignP htmlFor="radio1">Web Design</S.WebDesignP>
+                         </S.CategoriesHideWebDesign>
+                         </label>
 
-                             <S.CategoriesTheme $themeColor={topicName[inputValue.topic]}>
-                        <S.Input
+                         <label> 
+                         <S.CategoriesResearchInput
                            type="radio"
+                           id="radio2"
                            value="Research"
                            onChange={(e) =>
                             setInputValue({ ...inputValue, topic: e.target.value })
                           }
                        />
-                         <S.CatThemeP htmlFor="radio2">Research</S.CatThemeP>
-                         </S.CategoriesTheme>
+                             <S.CategoriesHideResearch $themeColor={topicName[inputValue.topic]}>
+                       
+                         <S.ResearchP htmlFor="radio2">Research</S.ResearchP>
+                         </S.CategoriesHideResearch>
+                         </label>
 
-                         <S.CategoriesTheme $themeColor={topicName[inputValue.topic]}>
-                        <S.Input
+                         <label> 
+                         <S.CategoriesCopywritingInput
                            type="radio"
+                           id="radio3"
                            value="Copywriting"
                            onChange={(e) =>
                             setInputValue({ ...inputValue, topic: e.target.value })
                           }
                        />
-                         <S.CatThemeP htmlFor="radio3">Copywriting</S.CatThemeP>
-                         </S.CategoriesTheme>
+                         <S.CategoriesHideCopywriting $themeColor={topicName[inputValue.topic]}>
+                       
+                         <S.CopywritingP htmlFor="radio3">Copywriting</S.CopywritingP>
+                         </S.CategoriesHideCopywriting>
+                         </label>
 
                         </S.CategoriesThemes>
                     </S.PopNewCardCategories>

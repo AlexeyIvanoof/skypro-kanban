@@ -218,7 +218,7 @@ color: #000;
 `;
 
 export const Input = styled.input`
-
+display: none
 `;
 
 export const CatThemeP = styled.label`
@@ -227,7 +227,6 @@ font-size: 14px;
   line-height: 14px;
   white-space: nowrap;
 `;
-
 
 export const CategoriesTheme = styled.div`
 display: inline-block;
@@ -282,4 +281,122 @@ color: red;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
+`;
+
+export const CategoriesWebDesignInput = styled.input`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+
+  &[type="radio"] {
+    display: none;
+  }
+  &:checked + div {
+  background-color: #fba96c;
+  color:  #ffe4c2;
+  font-weight: 700;
+}
+`;
+
+export const CategoriesHideWebDesign = styled.div`
+  border-radius: 24px;
+  margin-right: 7px;
+  cursor: pointer;
+  border: 1px solid #ffe4c2;
+  margin-bottom: 7px;
+  background-color: #ffe4c2;
+  
+  &:hover {
+    opacity: 1 !important;
+    font-weight: 700;
+    background: #ffe4c2;
+  }
+`;
+
+export const WebDesignP = styled.p`
+  color: #ff6d00;
+  padding: 8px 20px;
+  border-radius: 24px;
+`;
+
+export const CategoriesResearchInput = styled.input`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+
+  &[type="radio"] {
+    display: none;
+  }
+  &:checked + div {
+  background-color: #50f692;
+  color: #06b16e;
+  font-weight: 700;
+}
+`;
+export const CategoriesHideResearch = styled.div`
+  border-radius: 24px;
+  margin-right: 7px;
+  cursor: pointer;
+  border: 1px solid #b4fdd1;
+  margin-bottom: 7px;
+  background-color: #b4fdd1;
+  
+  &:hover {
+    opacity: 1 !important;
+    font-weight: 700;
+    background: #b4fdd1;
+  }
+`;
+
+export const ResearchP = styled.p`
+  color: #06b16e;
+  padding: 8px 20px;
+  border-radius: 24px;
+`;
+
+export const CategoriesCopywritingInput = styled.input`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+
+  &[type="radio"] {
+    display: none;
+  }
+  &:checked + div {
+    background-color:#bf92ef;
+  color: #06b16e;
+  font-weight: 700;
+}
+`;
+
+export const CategoriesHideCopywriting = styled.div`
+background-color: #e9d4ff;
+  border-radius: 24px;
+  margin-right: 7px;
+  cursor: pointer;
+  border: 1px solid #e9d4ff;
+  margin-bottom: 7px;
+  
+  &:hover {
+    opacity: 1 !important;
+    font-weight: 700;
+    background: #e9d4ff;
+  }
+`;
+export const CopywritingP = styled.p`
+  color: #9a48f1;
+  padding: 8px 20px;
+  border-radius: 24px;
 `;

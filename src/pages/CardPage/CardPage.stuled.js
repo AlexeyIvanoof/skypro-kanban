@@ -184,7 +184,7 @@ display: flex;
   justify-content: flex-start;
 `;
 
-export const StatusTheme = styled.div`
+export const Theme = styled.div`
 border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94A6BE;
@@ -194,13 +194,52 @@ border-radius: 24px;
   background: #94A6BE;
   color: #FFFFFF;
 `;
-
-export const StatusThemeP = styled.p`
+export const ThemeP = styled.p`
 font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
   background: #94A6BE;
   color: #FFFFFF;
+`;
+
+export const StatusTheme = styled.div`
+border-radius: 24px;
+border: 0.7px solid rgba(148, 166, 190, 0.4);
+color: #94a6be;
+padding: 11px 14px 10px;
+margin-right: 7px;
+margin-bottom: 7px;
+cursor: pointer;
+
+&:hover {
+  background: #94a6be;
+color: #ffffff;
+}
+`;
+
+export const StatusThemesInput = styled.input`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+
+  &[type="radio"] {
+    display: none;
+  }
+  &:checked + div {
+  background-color: #94A6BE;
+  border: 1px solid #94A6BE;
+  color: #ffffff;
+}
+`;
+
+export const StatusThemeP = styled.p`
+font-size: 14px;
+line-height: 1;
+letter-spacing: -0.14px;
 `;
 
 export const FormBrowseBlock = styled.div`
@@ -321,7 +360,3 @@ background-color: ${({ $themeColor }) =>
   }
 `;
 
-
-export const Input = styled.input`
-
-`;
