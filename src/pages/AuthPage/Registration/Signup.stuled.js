@@ -32,7 +32,6 @@ width: 100%;
     background-color: #FFFFFF;
     max-width: 368px;
     width: 100%;
-    padding: 50px 60px;
     border-radius: 10px;
     border: 0.7px solid #D4DBE5;
     box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
@@ -56,8 +55,7 @@ width: 100%;
   `;
 
   export const ModalInput = styled.input`
-    width: 100%;
-    min-width: 100%;
+  width: 248px;
     border-radius: 8px;
     border: 0.7px solid rgba(148, 166, 190, 0.4);
     outline: none;
@@ -84,12 +82,12 @@ width: 100%;
   `;
 
   export const ModalBtnEnter = styled.button`
-  width: 100%;
+  width: 268px;
   height: 30px;
   background-color: #565EEF;
   border-radius: 4px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   border: none;
   outline: none;
   display: flex;
@@ -125,6 +123,8 @@ export const ModalBtnSignupEntA = styled.a`
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.14px;
+  display: flex;
+    align-items: center;
 `;
 
 export const ModalFormGroupA = styled.p`
@@ -134,4 +134,5 @@ export const ModalFormGroupA = styled.p`
   line-height: 150%;
   letter-spacing: -0.14px;
   text-decoration: underline;
+  margin-left: 10px;
 `;

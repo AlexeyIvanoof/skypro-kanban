@@ -32,7 +32,6 @@ width: 100%;
     background-color: #FFFFFF;
     max-width: 368px;
     width: 100%;
-    padding: 50px 60px;
     border-radius: 10px;
     border: 0.7px solid #D4DBE5;
     box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
@@ -56,8 +55,7 @@ width: 100%;
   `;
 
   export const ModalInput = styled.input`
-    width: 100%;
-    min-width: 100%;
+    width: 248px;
     border-radius: 8px;
     border: 0.7px solid rgba(148, 166, 190, 0.4);
     outline: none;
@@ -84,7 +82,7 @@ width: 100%;
   `;
 
   export const ModalBtnEnter = styled.button`
-    width: 100%;
+    width: 268px;
     height: 30px;
     background-color: #565EEF;
     border-radius: 4px;

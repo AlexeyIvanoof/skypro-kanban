@@ -93,7 +93,8 @@ export function CardPage() {
                                         <S.ThemeP>{currentCard.status}</S.ThemeP>
                                     </S.Theme>
                                 </S.StatusThemes>
-                            </div><S.PopBrowseWrap>
+                            </div>
+                            <S.PopBrowseWrap>
                                     <S.PopBrowseForm id="formBrowseCard" action="#">
                                         <S.FormBrowseBlock>
                                             <S.LabelSubttl htmlFor="textArea01">Описание задачи</S.LabelSubttl>
@@ -115,6 +116,7 @@ export function CardPage() {
                                     <label> 
                                     <S.StatusThemesInput
                                                 type="radio"
+                                                name="status"
                                                 value="Без статуса"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
                                         <S.StatusTheme>
@@ -125,6 +127,7 @@ export function CardPage() {
                                         <label>
                                         <S.StatusThemesInput
                                                 type="radio"
+                                                name="status"
                                                 value="Нужно сделать"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
                                         <S.StatusTheme>
@@ -135,6 +138,7 @@ export function CardPage() {
                                         <label>
                                         <S.StatusThemesInput
                                                 type="radio"
+                                                name="status"
                                                 value="В работе"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
                                         <S.StatusTheme>
@@ -145,6 +149,7 @@ export function CardPage() {
                                         <label>
                                         <S.StatusThemesInput
                                                 type="radio"
+                                                name="status"
                                                 value="Тестирование"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
                                         <S.StatusTheme>
@@ -155,6 +160,7 @@ export function CardPage() {
                                         <label>
                                         <S.StatusThemesInput
                                                 type="radio"
+                                                name="status"
                                                 value="Готово"
                                                 onChange={(e) => setInputValue({ ...inputValue, status: e.target.value })} />
                                         <S.StatusTheme>

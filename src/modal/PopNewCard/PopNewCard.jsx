@@ -68,17 +68,6 @@ const onChangeInput = (e) => {
                                 onChange={onChangeInput}
                                 />
                             </S.FormNewBlock>
-                            
-                            <S.FormNewBlock>
-                                <S.Label htmlFor="formTitle">Статус</S.Label>
-                                <S.FormNewInput 
-                                type="text" 
-                                name="status" 
-                                id="formTitle" 
-                                placeholder="Введите статус задачи..." autoFocus
-                                onChange={onChangeInput}
-                                />
-                            </S.FormNewBlock>
 
                             <S.FormNewBlock>
                                 <S.Label  htmlFor="textArea" className="subttl">Описание задачи</S.Label>
@@ -102,6 +91,7 @@ const onChangeInput = (e) => {
                         <label> 
                         <S.CategoriesWebDesignInput
                            type="radio"
+                           name="category" 
                            id="radio1"
                            value="Web Design"
                            onChange={(e) =>
@@ -117,6 +107,7 @@ const onChangeInput = (e) => {
                          <label> 
                          <S.CategoriesResearchInput
                            type="radio"
+                           name="category" 
                            id="radio2"
                            value="Research"
                            onChange={(e) =>
@@ -132,6 +123,7 @@ const onChangeInput = (e) => {
                          <label> 
                          <S.CategoriesCopywritingInput
                            type="radio"
+                           name="category" 
                            id="radio3"
                            value="Copywriting"
                            onChange={(e) =>

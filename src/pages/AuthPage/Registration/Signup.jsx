@@ -74,11 +74,10 @@ export function Signup() {
 						<S.ModalBtnEnter type="submit" id="SignUpEnter"   disabled={offButton}>
 						Зарегистрироваться
 						</S.ModalBtnEnter>
-						<p style={{ color: "red" }}>{error}</p>
 						<S.ModalFormGroup>
 							<S.ModalFormGroupP>Уже есть аккаунт?  <Link to="/login"><S.ModalFormGroupA>Войдите здесь</S.ModalFormGroupA></Link></S.ModalFormGroupP>
 						</S.ModalFormGroup>
-
+						<p style={{ color: "red" }}>{error}</p>
                         </S.ModalFormLogin>
 				</S.ModalBlock>
             </S.Modal>

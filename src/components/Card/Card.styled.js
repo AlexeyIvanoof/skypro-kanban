@@ -4,14 +4,14 @@ import { topicStyles } from "../../ColorStyles/topic";
 export const ThemeP = styled.p`
   font-size: 10px;
   font-weight: 600;
-  line-height: 10px;
+  line-height: 1px;
 `;
 
 export const CardTheme = styled.div`
   width: auto;
-  height: 20px;
-  padding: 5px 14px;
-  border-radius: 18px;
+    height: 20px;
+    padding: 5px 14px;
+    border-radius: 18px;
   background-color: ${({ $themeColor }) =>
   topicStyles[$themeColor]?.backgroundColor || "#b4fdd1"};
 

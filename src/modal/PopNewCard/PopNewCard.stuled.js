@@ -319,7 +319,7 @@ export const CategoriesHideWebDesign = styled.div`
 
 export const WebDesignP = styled.p`
   color: #ff6d00;
-  padding: 8px 20px;
+  padding: 1px 20px;
   border-radius: 24px;
 `;
 
@@ -358,7 +358,7 @@ export const CategoriesHideResearch = styled.div`
 
 export const ResearchP = styled.p`
   color: #06b16e;
-  padding: 8px 20px;
+  padding: 1px 20px;
   border-radius: 24px;
 `;
 
@@ -397,6 +397,6 @@ background-color: #e9d4ff;
 `;
 export const CopywritingP = styled.p`
   color: #9a48f1;
-  padding: 8px 20px;
+  padding: 1px 20px;
   border-radius: 24px;
 `;
