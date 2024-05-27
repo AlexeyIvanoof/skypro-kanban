@@ -36,7 +36,7 @@ export const CardsCard = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: stretch;
-  padding: 15px 13px 19px;
+  padding: 15px 13px 0px;
 `;
 
 export const CardGroup = styled.div`

@@ -22,7 +22,7 @@ import { topicName } from "../../ColorStyles/topic";
       });
 
   const AddNewTask = async () => {
-  const title = !inputValue.title ? "Новая задача": inputValue.title;
+  const title = !inputValue.title ? "Название задачи": inputValue.title;
   const topic = !inputValue.topic ? "Research": inputValue.topic;
   const status = !inputValue.status ? "Без статуса": inputValue.status;
   const newCard = {
